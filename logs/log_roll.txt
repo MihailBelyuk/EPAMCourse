@@ -33,3 +33,12 @@ java.io.FileNotFoundException: data\numbers.txt (Не удается найти 
 2022-01-25 23:42:15 [main] ERROR com.belyuk.first_project.validator.Validator - Invalid characters in the file
 2022-01-25 23:42:15 [main] ERROR com.belyuk.first_project.validator.Validator - Invalid characters in the file
 2022-01-25 23:42:15 [main] ERROR com.belyuk.first_project.validator.Validator - Invalid characters in the file
+2022-01-26 00:47:53 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 00:47:53 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 00:47:53 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 00:47:53 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [2, 3, 5, 4, 0, 0]
+2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [0, 0, 2, 3, 4, 5]
+2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [0, 0, 2, 3, 4, 5]
+2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [0, 0, 2, 3, 4, 5]
+2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [0, 0, 2, 3, 4, 5]
