@@ -21,7 +21,7 @@ public class Validator {
     return false;
   }
 
-  public boolean validateLine(CustomParser stringParser) {
+  public boolean validateLine(CustomParser stringParser) { //TODO Apply to parser
     List<String> list;
     list = Arrays.asList(stringParser.getLiteralsFromFile());
     for (String str : list) {
