@@ -36,8 +36,7 @@ public class ServiceUtiIImplStream implements ServiceUtil {
   }
 
   @Override
-  public int[] replace(int[] array) {  //TODO replace using IntStream
-
+  public int[] replace(int[] array) {  //TODO "replace" using IntStream
        return array;
   }
 }

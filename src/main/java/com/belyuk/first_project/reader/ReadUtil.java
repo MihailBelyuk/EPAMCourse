@@ -20,7 +20,7 @@ public class ReadUtil {
       try (BufferedReader bufferedReader = new BufferedReader(new FileReader(NUMBERS_FILE))) {
         informationFromFile = bufferedReader.readLine();
       } catch (FileNotFoundException e) {
-        LOGGER.log(Level.ERROR, "File you are trying to read is missing.", e);
+        LOGGER.log(Level.ERROR, "File attempting to read is missing.", e);
       } catch (IOException e) {
         LOGGER.log(Level.ERROR, e.getMessage());
       }

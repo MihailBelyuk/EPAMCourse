@@ -9,9 +9,8 @@ public class CustomParser {
   private static final String DELIMITER = "\\s+";
   private String fileData;
   private String[] literalsFromFile;
-  static final Logger LOGGER = LogManager.getLogger();
 
-  public int[] parseString(ReadUtil readUtil, Validator validator) {
+  public int[] parseString(ReadUtil readUtil) {
     int[] intArray;
     fileData = readUtil.readFile();
     literalsFromFile = fileData.split(DELIMITER);

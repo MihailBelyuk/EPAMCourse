@@ -29,7 +29,7 @@ public class Validator {
         return true;
       }
     }
-    LOGGER.log(Level.ERROR, "Invalid characters in the file");
+    LOGGER.log(Level.ERROR, "Invalid literals in the file");
     return false;
   }
 }

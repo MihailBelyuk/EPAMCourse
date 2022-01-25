@@ -42,3 +42,6 @@ java.io.FileNotFoundException: data\numbers.txt (Не удается найти 
 2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [0, 0, 2, 3, 4, 5]
 2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [0, 0, 2, 3, 4, 5]
 2022-01-26 00:48:50 [main] INFO  com.belyuk.first_project.main.SimpleMain - [0, 0, 2, 3, 4, 5]
+2022-01-26 00:58:13 [main] ERROR com.belyuk.first_project.validator.Validator - File doesn't meet the requirements.
+2022-01-26 00:59:20 [main] ERROR com.belyuk.first_project.validator.Validator - File doesn't meet the requirements.
+2022-01-26 00:59:32 [main] ERROR com.belyuk.first_project.validator.Validator - File doesn't meet the requirements.
