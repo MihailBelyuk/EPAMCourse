@@ -1,12 +1,14 @@
 package com.belyuk.first_project.sort.impl;
 
+import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.sort.SortingUtil;
 import java.util.stream.IntStream;
 
 public class SortingUtilImpl implements SortingUtil {
 
   @Override
-  public int[] sortByBubble(int[] array) {
+  public int[] sortByBubble(SomeArray someArray) {
+    int[]array = someArray.getArray();
     int count;
     do {
       count = 0;
@@ -23,7 +25,8 @@ public class SortingUtilImpl implements SortingUtil {
   }
 
   @Override
-  public int[] sortBySelection(int[] array) {
+  public int[] sortBySelection(SomeArray someArray) {
+    int[]array = someArray.getArray();
     for (int i = 0; i < array.length; i++) {
       int minValue = array[i];
       int minIndex = i;
@@ -43,7 +46,8 @@ public class SortingUtilImpl implements SortingUtil {
   }
 
   @Override
-  public int[] sortByInsertion(int[] array) {
+  public int[] sortByInsertion(SomeArray someArray) {
+    int[]array = someArray.getArray();
     for (int i = 0; i < array.length; i++) {
       int index = i;
       int temp = array[i];
@@ -57,7 +61,8 @@ public class SortingUtilImpl implements SortingUtil {
   }
 
   @Override
-  public int[] sortUsingIntStream(int[] array) {
+  public int[] sortUsingIntStream(SomeArray someArray) {
+    int[]array = someArray.getArray();
     array = IntStream.of(array).sorted().toArray();
     return array;
   }

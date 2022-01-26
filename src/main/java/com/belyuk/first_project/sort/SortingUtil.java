@@ -1,11 +1,13 @@
 package com.belyuk.first_project.sort;
 
+import com.belyuk.first_project.entity.SomeArray;
+
 public interface SortingUtil {
-  int[] sortByBubble(int[] array);
+  int[] sortByBubble(SomeArray someArray);
 
-  int[] sortBySelection(int[] array);
+  int[] sortBySelection(SomeArray someArray);
 
-  int[] sortByInsertion(int[] array);
+  int[] sortByInsertion(SomeArray someArray);
 
-  int[] sortUsingIntStream(int[] array);
+  int[] sortUsingIntStream(SomeArray someArray);
 }
