@@ -14,7 +14,6 @@ public class CustomParser {
     int[] intArray;
     fileData = readUtil.readFile();
     literalsFromFile = fileData.split(DELIMITER);
-
     intArray = new int[literalsFromFile.length];
     for (int i = 0; i < literalsFromFile.length; i++) {
       intArray[i] = Integer.parseInt(literalsFromFile[i]);

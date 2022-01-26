@@ -1,17 +1,19 @@
 package com.belyuk.first_project.service;
 
+import com.belyuk.first_project.entity.SomeArray;
+
 public interface ServiceUtil {
-  int countSum(int[] array);
+  int countSum(SomeArray someArray);
 
-  int findMinValue(int[] array);
+  int findMinValue(SomeArray someArray);
 
-  int findMaxValue(int[] array);
+  int findMaxValue(SomeArray someArray);
 
-  double findAverageValue(int[] array);
+  double findAverageValue(SomeArray someArray);
 
-  int countNegativeValues(int[] array);
+  int countNegativeValues(SomeArray someArray);
 
-  int countPositiveValues(int[] array);
+  int countPositiveValues(SomeArray someArray);
 
-  int[] replace(int[] array);
+  int[] replace(SomeArray someArray);
 }

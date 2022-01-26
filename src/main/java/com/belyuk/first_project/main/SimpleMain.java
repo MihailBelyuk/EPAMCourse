@@ -23,7 +23,7 @@ public class SimpleMain {
 
     someArray.setArray(stringParser.parseString(readUtil));
 
-    LOGGER.log(Level.INFO, Arrays.toString(serviceUtils.replace(someArray.getArray())));
+    LOGGER.log(Level.INFO, Arrays.toString(serviceUtils.replace(someArray)));
     LOGGER.log(Level.INFO, Arrays.toString(sortingUtil.sortByBubble(someArray.getArray())));
     LOGGER.log(Level.INFO, Arrays.toString(sortingUtil.sortByInsertion(someArray.getArray())));
     LOGGER.log(Level.INFO, Arrays.toString(sortingUtil.sortBySelection(someArray.getArray())));

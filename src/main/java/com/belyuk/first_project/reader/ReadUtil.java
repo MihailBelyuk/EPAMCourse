@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ReadUtil {
-  private final static File NUMBERS_FILE = new File("data\\numbers.txt");
+  private static final File NUMBERS_FILE = new File("data\\numbers.txt");
   static final Logger LOGGER = LogManager.getLogger();
   private String informationFromFile;
 
