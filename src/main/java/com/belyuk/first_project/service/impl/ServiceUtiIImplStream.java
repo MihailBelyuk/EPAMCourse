@@ -7,18 +7,24 @@ import java.util.stream.IntStream;
 public class ServiceUtiIImplStream implements ServiceUtil {
 
   @Override
-  public int countSum(int[] array) {
-    return IntStream.of(array).sum();
+  public int countSum(SomeArray someArray) {
+    int[] array = someArray.getArray();
+    int sum = IntStream.of(array).sum();
+    return sum;
   }
 
   @Override
-  public int findMinValue(int[] array) {
-    return IntStream.of(array).min().getAsInt();
+  public int findMinValue(SomeArray someArray) {
+    int[] array = someArray.getArray();
+    int minValue = IntStream.of(array).min().getAsInt();
+    return minValue;
   }
 
   @Override
-  public int findMaxValue(int[] array) {
-    return IntStream.of(array).max().getAsInt();
+  public int findMaxValue(SomeArray someArray) {
+    int[] array = someArray.getArray();
+    int maxValue = IntStream.of(array).max().getAsInt();
+    return maxValue;
   }
 
   @Override
