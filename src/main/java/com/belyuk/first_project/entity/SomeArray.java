@@ -28,10 +28,10 @@ public class SomeArray {
   }
 
   public void setArray(int[] array) {
-    this.array = array;
+    this.array = Arrays.copyOf(array,array.length);
   }
 
   public int[] getArray() {
-    return array;
+    return Arrays.copyOf(array,array.length);
   }
 }
