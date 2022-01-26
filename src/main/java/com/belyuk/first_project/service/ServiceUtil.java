@@ -1,15 +1,17 @@
 package com.belyuk.first_project.service;
 
 import com.belyuk.first_project.entity.SomeArray;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 public interface ServiceUtil {
   int countSum(SomeArray someArray);
 
-  int findMinValue(SomeArray someArray);
+  OptionalInt findMinValue(SomeArray someArray);
 
-  int findMaxValue(SomeArray someArray);
+  OptionalInt findMaxValue(SomeArray someArray);
 
-  double findAverageValue(SomeArray someArray);
+  OptionalDouble findAverageValue(SomeArray someArray);
 
   int countNegativeValues(SomeArray someArray);
 

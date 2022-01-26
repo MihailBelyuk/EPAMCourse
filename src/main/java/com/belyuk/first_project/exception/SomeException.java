@@ -2,8 +2,7 @@ package com.belyuk.first_project.exception;
 
 public class SomeException extends Exception {
 
-  public SomeException() {
-  }
+  public SomeException() {}
 
   public SomeException(String message) {
     super(message);

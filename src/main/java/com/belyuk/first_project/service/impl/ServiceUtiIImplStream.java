@@ -2,6 +2,8 @@ package com.belyuk.first_project.service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.service.ServiceUtil;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class ServiceUtiIImplStream implements ServiceUtil {
@@ -14,23 +16,24 @@ public class ServiceUtiIImplStream implements ServiceUtil {
   }
 
   @Override
-  public int findMinValue(SomeArray someArray) {
+  public OptionalInt findMinValue(SomeArray someArray) {
     int[] array = someArray.getArray();
-    int minValue = IntStream.of(array).min().getAsInt();
+    OptionalInt minValue = IntStream.of(array).min();
     return minValue;
   }
 
   @Override
-  public int findMaxValue(SomeArray someArray) {
+  public OptionalInt findMaxValue(SomeArray someArray) {
     int[] array = someArray.getArray();
-    int maxValue = IntStream.of(array).max().getAsInt();
+    OptionalInt maxValue = IntStream.of(array).max();
     return maxValue;
   }
 
   @Override
-  public double findAverageValue(SomeArray someArray) {
+  public OptionalDouble findAverageValue(SomeArray someArray) {
     int[] array = someArray.getArray();
-    return IntStream.of(array).average().getAsDouble();
+    OptionalDouble averageValue = IntStream.of(array).average();
+    return averageValue;
   }
 
   @Override
@@ -47,7 +50,7 @@ public class ServiceUtiIImplStream implements ServiceUtil {
 
   @Override
   public int[] replace(SomeArray someArray) {
-    int[] array = someArray.getArray();          //TODO "replace" using IntStream
-       return array;
+    int[] array = someArray.getArray(); // TODO "replace" using IntStream
+    return array;
   }
 }

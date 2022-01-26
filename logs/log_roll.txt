@@ -50,3 +50,8 @@ java.io.FileNotFoundException: data\numbers.txt (Не удается найти 
 2022-01-26 10:03:20 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
 2022-01-26 10:03:20 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
 2022-01-26 10:03:20 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 11:07:00 [main] INFO  com.belyuk.first_project.main.SimpleMain - [2, 3, 5, 4, 0, 0]
+2022-01-26 11:07:00 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 11:07:00 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 11:07:00 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]
+2022-01-26 11:07:00 [main] INFO  com.belyuk.first_project.main.SimpleMain - [-11, -6, 2, 3, 4, 5]

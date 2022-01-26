@@ -1,9 +1,6 @@
 package com.belyuk.first_project.parser;
 
 import com.belyuk.first_project.reader.ReadUtil;
-import com.belyuk.first_project.validator.Validator;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class CustomParser {
   private static final String DELIMITER = "\\s+";

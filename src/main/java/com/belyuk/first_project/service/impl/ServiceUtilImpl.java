@@ -2,6 +2,8 @@ package com.belyuk.first_project.service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.service.ServiceUtil;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 public class ServiceUtilImpl implements ServiceUtil {
 
@@ -16,7 +18,7 @@ public class ServiceUtilImpl implements ServiceUtil {
   }
 
   @Override
-  public int findMinValue(SomeArray someArray) {
+  public OptionalInt findMinValue(SomeArray someArray) {
     int[] array = someArray.getArray();
     int min = array[0];
     for (int i = 0; i < array.length; i++) {
@@ -24,11 +26,11 @@ public class ServiceUtilImpl implements ServiceUtil {
         min = array[i];
       }
     }
-    return min;
+    return OptionalInt.of(min);
   }
 
   @Override
-  public int findMaxValue(SomeArray someArray) {
+  public OptionalInt findMaxValue(SomeArray someArray) {
     int[] array = someArray.getArray();
     int max = array[0];
     for (int i = 0; i < array.length; i++) {
@@ -36,18 +38,18 @@ public class ServiceUtilImpl implements ServiceUtil {
         max = array[i];
       }
     }
-    return max;
+    return OptionalInt.of(max);
   }
 
   @Override
-  public double findAverageValue(SomeArray someArray) {
+  public OptionalDouble findAverageValue(SomeArray someArray) {
     int[] array = someArray.getArray();
     double sum = 0;
     for (int i = 0; i < array.length; i++) {
       sum += array[i];
     }
     double averageValue = sum / array.length;
-    return averageValue;
+    return OptionalDouble.of(averageValue);
   }
 
   @Override
@@ -76,7 +78,7 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public int[] replace(SomeArray someArray) {
-    int[] array = someArray.getArray();// replace all negative values with "0"
+    int[] array = someArray.getArray(); // replace all negative values with "0"
     for (int i = 0; i < array.length; i++) {
       if (array[i] < 0) {
         array[i] = 0;

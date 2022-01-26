@@ -13,7 +13,7 @@ public class Validator {
   static final Logger LOGGER = LogManager.getLogger();
 
   public static boolean validateFileInfo(File numbers) {
-    if (numbers.exists() && numbers.length() > 0) {
+    if (numbers.exists() && numbers.length() >0) {
       return true;
     } else {
       LOGGER.log(Level.ERROR, "File doesn't meet the requirements.");
@@ -21,7 +21,7 @@ public class Validator {
     return false;
   }
 
-  public boolean validateLine(CustomParser stringParser) { //TODO Apply to parser
+  public boolean validateLine(CustomParser stringParser) { // TODO Apply to parser
     List<String> list;
     list = Arrays.asList(stringParser.getLiteralsFromFile());
     for (String str : list) {
