@@ -1,55 +1,83 @@
 package com.belyuk.first_project.service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
+import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.service.ServiceUtil;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 import java.util.stream.IntStream;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ServiceUtiIImplStream implements ServiceUtil {
+  private static final Logger LOGGER = LogManager.getLogger();
 
   @Override
-  public int countSum(SomeArray someArray) {
+  public int countSum(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
-    int sum = IntStream.of(array).sum();
-    return sum;
+    return IntStream.of(array).sum();
   }
 
   @Override
-  public OptionalInt findMinValue(SomeArray someArray) {
+  public int findMinValue(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
-    OptionalInt minValue = IntStream.of(array).min();
-    return minValue;
+    return IntStream.of(array).min().getAsInt();
   }
 
   @Override
-  public OptionalInt findMaxValue(SomeArray someArray) {
+  public int findMaxValue(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
-    OptionalInt maxValue = IntStream.of(array).max();
-    return maxValue;
+    IntStream.of(array).max().getAsInt();
+    return IntStream.of(array).max().getAsInt();
   }
 
   @Override
-  public OptionalDouble findAverageValue(SomeArray someArray) {
+  public double findAverageValue(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
-    OptionalDouble averageValue = IntStream.of(array).average();
-    return averageValue;
+    return IntStream.of(array).average().getAsDouble();
   }
 
   @Override
-  public int countNegativeValues(SomeArray someArray) {
+  public int countNegativeValues(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     return (int) IntStream.of(array).filter(x -> x < 0).count();
   }
 
   @Override
-  public int countPositiveValues(SomeArray someArray) {
+  public int countPositiveValues(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     return (int) IntStream.of(array).filter(x -> x > 0).count();
   }
 
   @Override
-  public int[] replace(SomeArray someArray) {
+  public int[] replace(SomeArray someArray, char forReplace) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray(); // TODO "replace" using IntStream
     return array;
   }

@@ -1,63 +1,85 @@
 package com.belyuk.first_project.service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
+import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.service.ServiceUtil;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ServiceUtilImpl implements ServiceUtil {
+  private static final Logger LOGGER = LogManager.getLogger();
 
   @Override
-  public int countSum(SomeArray someArray) {
+  public int countSum(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     int result = 0;
-    for (int i = 0; i < array.length; i++) {
-      result += array[i];
+    for (int j : array) {
+      result += j;
     }
     return result;
   }
 
   @Override
-  public OptionalInt findMinValue(SomeArray someArray) {
+  public int findMinValue(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     int min = array[0];
-    for (int i = 0; i < array.length; i++) {
-      if (min > array[i]) {
-        min = array[i];
+    for (int j : array) {
+      if (min > j) {
+        min = j;
       }
     }
-    return OptionalInt.of(min);
+    return min;
   }
 
   @Override
-  public OptionalInt findMaxValue(SomeArray someArray) {
+  public int findMaxValue(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     int max = array[0];
-    for (int i = 0; i < array.length; i++) {
-      if (max < array[i]) {
-        max = array[i];
+    for (int j : array) {
+      if (max < j) {
+        max = j;
       }
     }
-    return OptionalInt.of(max);
+    return max;
   }
 
   @Override
-  public OptionalDouble findAverageValue(SomeArray someArray) {
+  public double findAverageValue(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     double sum = 0;
-    for (int i = 0; i < array.length; i++) {
-      sum += array[i];
+    for (int j : array) {
+      sum += j;
     }
-    double averageValue = sum / array.length;
-    return OptionalDouble.of(averageValue);
+    return sum / array.length;
   }
 
   @Override
-  public int countNegativeValues(SomeArray someArray) {
+  public int countNegativeValues(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     int negativeValues = 0;
-    for (int i = 0; i < array.length; i++) {
-      if (array[i] < 0) {
+    for (int j : array) {
+      if (j < 0) {
         negativeValues++;
       }
     }
@@ -65,11 +87,15 @@ public class ServiceUtilImpl implements ServiceUtil {
   }
 
   @Override
-  public int countPositiveValues(SomeArray someArray) {
+  public int countPositiveValues(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     int positiveValues = 0;
-    for (int i = 0; i < array.length; i++) {
-      if (array[i] < 0) {
+    for (int j : array) {
+      if (j < 0) {
         positiveValues++;
       }
     }
@@ -77,11 +103,15 @@ public class ServiceUtilImpl implements ServiceUtil {
   }
 
   @Override
-  public int[] replace(SomeArray someArray) {
+  public int[] replace(SomeArray someArray, char forReplace) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray(); // replace all negative values with "0"
     for (int i = 0; i < array.length; i++) {
       if (array[i] < 0) {
-        array[i] = 0;
+        array[i] = forReplace;
       }
     }
     return array;

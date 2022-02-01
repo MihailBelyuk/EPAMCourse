@@ -1,13 +1,21 @@
 package com.belyuk.first_project.sort.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
+import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.sort.SortingUtil;
 import java.util.stream.IntStream;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SortingUtilImpl implements SortingUtil {
-
+  private static final Logger LOGGER = LogManager.getLogger();
   @Override
-  public int[] sortByBubble(SomeArray someArray) {
+  public int[] sortByBubble(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     int count;
     do {
@@ -25,7 +33,11 @@ public class SortingUtilImpl implements SortingUtil {
   }
 
   @Override
-  public int[] sortBySelection(SomeArray someArray) {
+  public int[] sortBySelection(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     for (int i = 0; i < array.length; i++) {
       int minValue = array[i];
@@ -46,7 +58,11 @@ public class SortingUtilImpl implements SortingUtil {
   }
 
   @Override
-  public int[] sortByInsertion(SomeArray someArray) {
+  public int[] sortByInsertion(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     for (int i = 0; i < array.length; i++) {
       int index = i;
@@ -61,7 +77,11 @@ public class SortingUtilImpl implements SortingUtil {
   }
 
   @Override
-  public int[] sortUsingIntStream(SomeArray someArray) {
+  public int[] sortUsingIntStream(SomeArray someArray) throws SomeException {
+    if(someArray == null){
+      LOGGER.log(Level.ERROR,"Method parameter is null.");
+      throw new SomeException("Method parameter is null.");
+    }
     int[] array = someArray.getArray();
     array = IntStream.of(array).sorted().toArray();
     return array;
