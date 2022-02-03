@@ -9,10 +9,11 @@ public abstract class AbstractArray implements Observable {
   private int arrayId;
   private List<SomeArrayObserver> arrayObserverList;
 
-  public AbstractArray() {}
+  public AbstractArray() {
+    this.arrayId = IdGenerator.getIdCount();
+  }
 
   public int getArrayId() {
-    this.arrayId = IdGenerator.getIdCount();
     return arrayId;
   }
 
