@@ -8,8 +8,8 @@ public class ArrayStatistics {
   private int positiveValues;
   private int negativeValues;
 
-  public ArrayStatistics(int min, int max, double average, int sum, int positiveValues,
-      int negativeValues) {
+  public ArrayStatistics(
+      int min, int max, double average, int sum, int positiveValues, int negativeValues) {
     this.min = min;
     this.max = max;
     this.average = average;

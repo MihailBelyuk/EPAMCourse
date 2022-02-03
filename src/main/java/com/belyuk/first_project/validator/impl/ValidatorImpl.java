@@ -23,7 +23,7 @@ public class ValidatorImpl implements Validator {
       File file = new File(filePath);
       if (file.exists() && file.length() > 0) {
         isValid = true;
-        LOGGER.log(Level.INFO,"File path is valid.");
+        LOGGER.log(Level.INFO, "File path is valid.");
       }
     }
     return isValid;

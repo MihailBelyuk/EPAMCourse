@@ -5,5 +5,4 @@ import com.belyuk.first_project.exception.SomeException;
 
 public interface ArrayCreator {
   SomeArray createSomeArray() throws SomeException;
-
 }

@@ -12,8 +12,8 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public int countSum(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -26,8 +26,8 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public int findMinValue(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -42,8 +42,8 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public int findMaxValue(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -58,8 +58,8 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public double findAverageValue(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -72,8 +72,8 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public int countNegativeValues(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -88,8 +88,8 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public int countPositiveValues(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -104,8 +104,8 @@ public class ServiceUtilImpl implements ServiceUtil {
 
   @Override
   public int[] replace(SomeArray someArray, int forReplace) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray(); // replace all negative values with "0"

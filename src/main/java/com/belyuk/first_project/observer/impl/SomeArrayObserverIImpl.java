@@ -24,6 +24,6 @@ public class SomeArrayObserverIImpl implements SomeArrayObserver {
     int arrayId = someArray.getArrayId();
 
     Warehouse warehouse = Warehouse.getInstance();
-    warehouse.replace(arrayId,statistics);
+    warehouse.replace(arrayId, statistics);
   }
 }

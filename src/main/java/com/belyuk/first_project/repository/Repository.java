@@ -35,6 +35,6 @@ public class Repository {
   }
 
   public List<SomeArray> queryStream(Specification specification) {
-      return listWithArrays.stream().filter(x -> x == specification).toList();
+    return listWithArrays.stream().filter(x -> x == specification).toList();
   }
 }

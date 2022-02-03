@@ -10,10 +10,11 @@ import org.apache.logging.log4j.Logger;
 
 public class SortingUtilImpl implements SortingUtil {
   private static final Logger LOGGER = LogManager.getLogger();
+
   @Override
-  public int[] sortByBubble(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+  public SomeArray sortByBubble(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -29,13 +30,13 @@ public class SortingUtilImpl implements SortingUtil {
         }
       }
     } while (count > 0);
-    return array;
+    return someArray;
   }
 
   @Override
-  public int[] sortBySelection(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+  public SomeArray sortBySelection(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -54,13 +55,13 @@ public class SortingUtilImpl implements SortingUtil {
         array[minIndex] = temp;
       }
     }
-    return array;
+    return someArray;
   }
 
   @Override
-  public int[] sortByInsertion(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+  public SomeArray sortByInsertion(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
@@ -73,17 +74,17 @@ public class SortingUtilImpl implements SortingUtil {
       }
       array[index] = temp;
     }
-    return array;
+    return someArray;
   }
 
   @Override
-  public int[] sortUsingIntStream(SomeArray someArray) throws SomeException {
-    if(someArray == null){
-      LOGGER.log(Level.ERROR,"Method parameter is null.");
+  public SomeArray sortUsingIntStream(SomeArray someArray) throws SomeException {
+    if (someArray == null) {
+      LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
     array = IntStream.of(array).sorted().toArray();
-    return array;
+    return someArray;
   }
 }
