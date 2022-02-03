@@ -3,17 +3,13 @@ package com.belyuk.first_project.entity;
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.Observable;
 import com.belyuk.first_project.observer.SomeArrayObserver;
-import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractArray  implements Observable {
+public abstract class AbstractArray implements Observable {
   private int arrayId;
   private List<SomeArrayObserver> arrayObserverList;
 
-  public AbstractArray(int arrayId) {
-    this.arrayId = arrayId;
-    arrayObserverList = new ArrayList<>();
-  }
+  public AbstractArray() {}
 
   public int getArrayId() {
     return arrayId;
@@ -27,23 +23,16 @@ public abstract class AbstractArray  implements Observable {
     return arrayObserverList;
   }
 
-  public void setArrayObserverList(
-      List<SomeArrayObserver> arrayObserverList) {
+  public void setArrayObserverList(List<SomeArrayObserver> arrayObserverList) {
     this.arrayObserverList = arrayObserverList;
   }
 
   @Override
-  public void attach(SomeArrayObserver observer) {
-
-  }
+  public void attach(SomeArrayObserver observer) {}
 
   @Override
-  public void detach(SomeArrayObserver observer) {
-
-  }
+  public void detach(SomeArrayObserver observer) {}
 
   @Override
-  public void notifyObservers() throws SomeException {
-
-  }
+  public void notifyObservers() throws SomeException {}
 }

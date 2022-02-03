@@ -3,8 +3,6 @@ package com.belyuk.first_project.entity;
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.SomeArrayObserver;
 import java.util.Arrays;
-import java.util.List;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,13 +10,7 @@ public class SomeArray extends AbstractArray {
   private static final Logger LOGGER = LogManager.getLogger();
   private int[] array;
 
-  public SomeArray(int arrayId, List<SomeArrayObserver> arrayObserverList, int[] array)
-      throws SomeException {
-    super(arrayId);
-    if (array == null) {
-      LOGGER.log(Level.ERROR, "Provided array is null.");
-      throw new SomeException("Provided array is null.");
-    }
+  public SomeArray() {
     this.array = Arrays.copyOf(array, array.length);
   }
 
