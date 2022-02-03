@@ -3,6 +3,7 @@ package com.belyuk.first_project.entity;
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.Observable;
 import com.belyuk.first_project.observer.SomeArrayObserver;
+import com.belyuk.first_project.service.generator.IdGenerator;
 import java.util.List;
 
 public abstract class AbstractArray implements Observable {
@@ -10,7 +11,7 @@ public abstract class AbstractArray implements Observable {
   private List<SomeArrayObserver> arrayObserverList;
 
   public AbstractArray() {
-    this.arrayId = IdGenerator.getIdCount();
+    this.arrayId = IdGenerator.createId();
   }
 
   public long getArrayId() {
