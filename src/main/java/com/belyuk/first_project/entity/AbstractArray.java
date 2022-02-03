@@ -12,6 +12,7 @@ public abstract class AbstractArray implements Observable {
   public AbstractArray() {}
 
   public int getArrayId() {
+    this.arrayId = IdGenerator.getIdCount();
     return arrayId;
   }
 
