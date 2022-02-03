@@ -1,8 +1,8 @@
-package com.belyuk.first_project.sort.impl;
+package com.belyuk.first_project.service.sort_service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;
-import com.belyuk.first_project.sort.SortingUtil;
+import com.belyuk.first_project.service.sort_service.SortingUtil;
 import java.util.stream.IntStream;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;

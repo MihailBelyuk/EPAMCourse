@@ -20,7 +20,7 @@ public class CustomParserImpl implements CustomParser {
   @Override
   public int[] parseString(String stringFromFile) throws SomeException {
     if ( stringFromFile == null){
-      throw new SomeException("Provided strong is null.");
+      throw new SomeException("Provided string is null.");
     }
     int[] intArray;
     String[] lineArray;

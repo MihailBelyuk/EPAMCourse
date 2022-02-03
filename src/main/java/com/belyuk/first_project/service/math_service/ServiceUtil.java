@@ -1,4 +1,4 @@
-package com.belyuk.first_project.service;
+package com.belyuk.first_project.service.math_service;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;
@@ -18,5 +18,5 @@ public interface ServiceUtil {
 
   int countPositiveValues(SomeArray someArray) throws SomeException;
 
-  int[] replace(SomeArray someArray, char forReplace) throws SomeException;
+  int[] replace(SomeArray someArray, int forReplace) throws SomeException;
 }

@@ -1,4 +1,4 @@
-package com.belyuk.first_project.sort;
+package com.belyuk.first_project.service.sort_service;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;

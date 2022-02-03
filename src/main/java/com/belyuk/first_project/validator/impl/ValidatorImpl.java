@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 public class ValidatorImpl implements Validator {
   private static final Logger LOGGER = LogManager.getLogger();
-  private static final Validator validator = new ValidatorImpl();
+  private static final ValidatorImpl validator = new ValidatorImpl();
 
   private ValidatorImpl() {}
 
@@ -17,7 +17,10 @@ public class ValidatorImpl implements Validator {
 
   @Override
   public boolean validateFileInfo(String filePath) {
-    boolean isValid;
+    boolean isValid = false;
+    if(filePath == null){
+      isValid = false;
+    }
     File file = new File(filePath);
     if (file == null) {
       isValid = false;

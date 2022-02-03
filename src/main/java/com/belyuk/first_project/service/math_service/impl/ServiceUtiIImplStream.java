@@ -1,8 +1,8 @@
-package com.belyuk.first_project.service.impl;
+package com.belyuk.first_project.service.math_service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;
-import com.belyuk.first_project.service.ServiceUtil;
+import com.belyuk.first_project.service.math_service.ServiceUtil;
 import java.util.stream.IntStream;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -73,7 +73,7 @@ public class ServiceUtiIImplStream implements ServiceUtil {
   }
 
   @Override
-  public int[] replace(SomeArray someArray, char forReplace) throws SomeException {
+  public int[] replace(SomeArray someArray, int forReplace) throws SomeException {
     if (someArray == null) {
       LOGGER.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
