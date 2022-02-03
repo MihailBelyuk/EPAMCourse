@@ -1,7 +1,7 @@
 package com.belyuk.first_project.entity;
 
 public class IdGenerator {
-  private static int iD = 0;
+  private static long iD = 0;
 
   private IdGenerator() {}
 
