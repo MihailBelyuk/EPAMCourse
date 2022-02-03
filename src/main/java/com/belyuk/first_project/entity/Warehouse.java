@@ -5,15 +5,15 @@ import java.util.Map;
 
 public class Warehouse {
   private static final Warehouse warehouse = new Warehouse();
-  private Map<Integer, ArrayStatistics> map = new HashMap<>();
+  private Map<Long, ArrayStatistics> map = new HashMap<Long, ArrayStatistics>();
 
   private Warehouse() {}
 
-  public ArrayStatistics get(Integer key) {
+  public ArrayStatistics get(Long key) {
     return map.get(key);
   }
 
-  public ArrayStatistics put(Integer key, ArrayStatistics value) {
+  public ArrayStatistics put(Long key, ArrayStatistics value) {
     return map.put(key, value);
   }
 
@@ -21,7 +21,7 @@ public class Warehouse {
     return map.remove(key);
   }
 
-  public ArrayStatistics replace(Integer key, ArrayStatistics value) {
+  public ArrayStatistics replace(Long key, ArrayStatistics value) {
     return map.replace(key, value);
   }
 

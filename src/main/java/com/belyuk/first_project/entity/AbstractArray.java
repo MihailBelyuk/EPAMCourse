@@ -6,14 +6,14 @@ import com.belyuk.first_project.observer.SomeArrayObserver;
 import java.util.List;
 
 public abstract class AbstractArray implements Observable {
-  private int arrayId;
+  private long arrayId;
   private List<SomeArrayObserver> arrayObserverList;
 
   public AbstractArray() {
     this.arrayId = IdGenerator.getIdCount();
   }
 
-  public int getArrayId() {
+  public long getArrayId() {
     return arrayId;
   }
 

@@ -21,7 +21,7 @@ public class SomeArrayObserverIImpl implements SomeArrayObserver {
     ArrayStatistics statistics =
         new ArrayStatistics(max, min, average, sum, negativeValues, positiveValues);
 
-    int arrayId = someArray.getArrayId();
+    long arrayId = someArray.getArrayId();
 
     Warehouse warehouse = Warehouse.getInstance();
     warehouse.replace(arrayId, statistics);

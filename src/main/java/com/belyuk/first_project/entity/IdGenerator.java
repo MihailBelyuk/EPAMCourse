@@ -5,7 +5,7 @@ public class IdGenerator {
 
   private IdGenerator() {}
 
-  public static int getIdCount() {
+  public static long getIdCount() {
     return ++iD;
   }
 }
