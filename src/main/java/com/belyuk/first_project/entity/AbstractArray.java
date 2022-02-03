@@ -17,7 +17,7 @@ public abstract class AbstractArray implements Observable {
     return arrayId;
   }
 
-  public void setArrayId(int arrayId) {
+  public void setArrayId(long arrayId) {
     this.arrayId = arrayId;
   }
 
