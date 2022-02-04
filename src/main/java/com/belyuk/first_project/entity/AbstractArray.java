@@ -1,14 +1,13 @@
 package com.belyuk.first_project.entity;
 
-import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.Observable;
 import com.belyuk.first_project.observer.SomeArrayObserver;
-import com.belyuk.first_project.service.generator.IdGenerator;
+import com.belyuk.first_project.service.IdGenerator;
 import java.util.List;
 
 public abstract class AbstractArray implements Observable {
   private long arrayId;
-  private List<SomeArrayObserver> arrayObserverList;
+  List<SomeArrayObserver> arrayObserverList;
 
   public AbstractArray() {
     this.arrayId = IdGenerator.createId();
@@ -18,24 +17,17 @@ public abstract class AbstractArray implements Observable {
     return arrayId;
   }
 
-  public void setArrayId(long arrayId) {
-    this.arrayId = arrayId;
-  }
-
   public List<SomeArrayObserver> getArrayObserverList() {
     return arrayObserverList;
   }
 
-  public void setArrayObserverList(List<SomeArrayObserver> arrayObserverList) {
-    this.arrayObserverList = arrayObserverList;
+  @Override
+  public void attach(SomeArrayObserver observer) {
+    getArrayObserverList().add(observer);
   }
 
   @Override
-  public void attach(SomeArrayObserver observer) {}
-
-  @Override
-  public void detach(SomeArrayObserver observer) {}
-
-  @Override
-  public void notifyObservers() throws SomeException {}
+  public void detach(SomeArrayObserver observer) {
+    getArrayObserverList().remove(observer);
+  }
 }

@@ -1,8 +1,8 @@
-package com.belyuk.first_project.service.generator;
+package com.belyuk.first_project.service;
 
 public class IdGenerator {
   private static final long MIN_ID = 0;
-  private static final long MAX_ID = 1000;
+  private static final long MAX_ID = 1000000;
   private static long counter;
 
   private IdGenerator() {}

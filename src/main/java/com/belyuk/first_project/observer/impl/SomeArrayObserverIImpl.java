@@ -5,19 +5,34 @@ import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.entity.Warehouse;
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.SomeArrayObserver;
-import com.belyuk.first_project.service.math_service.impl.ServiceUtilImpl;
+import com.belyuk.first_project.service.impl.ServiceUtilImpl;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SomeArrayObserverIImpl implements SomeArrayObserver {
+  private static final Logger logger = LogManager.getLogger();
 
   @Override
-  public void changeElement(SomeArray someArray) throws SomeException {
+  public void changeElement(SomeArray someArray) {
     ServiceUtilImpl serviceUtil = new ServiceUtilImpl();
-    int max = serviceUtil.findMaxValue(someArray);
-    int min = serviceUtil.findMinValue(someArray);
-    double average = serviceUtil.findAverageValue(someArray);
-    int sum = serviceUtil.countSum(someArray);
-    int negativeValues = serviceUtil.countNegativeValues(someArray);
-    int positiveValues = serviceUtil.countPositiveValues(someArray);
+    int max = 0;
+    int min = 0;
+    double average = 0;
+    int sum = 0;
+    int negativeValues = 0;
+    int positiveValues = 0;
+    try {
+      max = serviceUtil.findMaxValue(someArray);
+      min = serviceUtil.findMinValue(someArray);
+      average = serviceUtil.findAverageValue(someArray);
+      sum = serviceUtil.countSum(someArray);
+      negativeValues = serviceUtil.countNegativeValues(someArray);
+      positiveValues = serviceUtil.countPositiveValues(someArray);
+    } catch (SomeException e) {
+      logger.log(Level.ERROR, "Provided parameter is null.");
+      e.printStackTrace();
+    }
     ArrayStatistics statistics =
         new ArrayStatistics(max, min, average, sum, negativeValues, positiveValues);
 

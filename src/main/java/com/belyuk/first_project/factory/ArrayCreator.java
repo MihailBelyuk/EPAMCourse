@@ -4,5 +4,6 @@ import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;
 
 public interface ArrayCreator {
-  SomeArray createSomeArray() throws SomeException;
+  SomeArray createSomeArray(int[] array) throws SomeException;
+
 }

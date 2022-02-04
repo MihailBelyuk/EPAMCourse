@@ -13,7 +13,7 @@ public class ArrayRepository {
     return arrayRepository;
   }
 
-  private List<SomeArray> listWithArrays;
+  private final List<SomeArray> listWithArrays = new ArrayList<>();
 
   public void addSomeArray(SomeArray someArray) {
     listWithArrays.add(someArray);
@@ -43,7 +43,9 @@ public class ArrayRepository {
 
   public List<SomeArray> queryStream(Specification specification) {
     List<SomeArray> someArrayList;
-    someArrayList = listWithArrays.stream().filter(specification::specify).toList();
+    someArrayList = listWithArrays.stream()
+                                  .filter(specification::specify)
+                                  .toList();
     return someArrayList;
   }
 }

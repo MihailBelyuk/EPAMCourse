@@ -15,9 +15,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class CustomReaderImpl implements CustomReader {
-  private static final Logger LOGGER = LogManager.getLogger();
+  private static final Logger logger = LogManager.getLogger();
   private static final CustomReaderImpl customReader = new CustomReaderImpl();
-  private static final String FILE_INFO_VALIDATOR = "^\\s*-?\\d{1,10}(\\s+(-?\\d{1,10}))*\\s*$";
 
   private CustomReaderImpl() {}
 
@@ -27,29 +26,26 @@ public class CustomReaderImpl implements CustomReader {
 
   @Override
   public List<String> readFile(String filePath) throws SomeException {
-    if (filePath == null) {
-      LOGGER.log(Level.ERROR, "File path is null.");
-      throw new SomeException("File path is null.");
-    }
     List<String> lines = new ArrayList<>();
     Validator validator = ValidatorImpl.getInstance();
     String informationFromFile;
     if (validator.validateFileInfo(filePath)) {
       try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
         while ((informationFromFile = bufferedReader.readLine()) != null) {
-          if (informationFromFile.matches(FILE_INFO_VALIDATOR)) {
+          if (validator.validateFileInfo(informationFromFile)) {
             lines.add(informationFromFile);
           }
         }
       } catch (FileNotFoundException e) {
-        LOGGER.log(Level.ERROR, "File attempting to read is missing.");
+        logger.log(Level.ERROR, "File attempting to read is missing.");
         throw new SomeException("File attempting to read is missing.");
       } catch (IOException e) {
-        LOGGER.log(Level.ERROR, e.getMessage());
+        logger.log(Level.ERROR, "File can't be read." + filePath, e);
+        throw new SomeException("File can't be read", e);
       }
     } else {
-      LOGGER.log(Level.ERROR, "File trying to access is empty.");
-      throw new SomeException("File trying to access is empty.");
+      logger.log(Level.ERROR, "File trying to access is empty or null.");
+      throw new SomeException("File trying to access is empty or null.");
     }
     return lines;
   }

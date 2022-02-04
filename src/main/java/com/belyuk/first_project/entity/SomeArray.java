@@ -7,22 +7,33 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class SomeArray extends AbstractArray {
-  private static final Logger LOGGER = LogManager.getLogger();
+  private static final Logger logger = LogManager.getLogger();
   private int[] array;
 
-  public SomeArray() {
-    this.array = Arrays.copyOf(array, array.length);
+  public SomeArray(int[] array) throws SomeException {
+    if (array != null) {
+      this.array = Arrays.copyOf(array, array.length);
+    } else {
+      throw new SomeException("Array is null.");
+    }
   }
 
   public void setElement(int index, int value) throws SomeException {
     if (index >= 0 && index < array.length) {
       array[index] = value;
       notifyObservers();
+    } else {
+      throw new SomeException("Incorrect index or value.");
     }
   }
 
-  public void setArray(int[] array) {
-    this.array = Arrays.copyOf(array, array.length);
+  public void setArray(int[] array) throws SomeException {
+    if (array != null) {
+      this.array = Arrays.copyOf(array, array.length);
+      notifyObservers();
+    } else {
+      throw new SomeException("Array is null.");
+    }
   }
 
   public int[] getArray() {
@@ -30,8 +41,12 @@ public class SomeArray extends AbstractArray {
   }
 
   @Override
-  public String toString() {
-    return "SomeArray{" + "array=" + Arrays.toString(array) + '}';
+  public void notifyObservers() {
+    if (!arrayObserverList.isEmpty()) {
+      for (SomeArrayObserver observer : arrayObserverList) {
+        observer.changeElement(this);
+      }
+    }
   }
 
   @Override
@@ -52,19 +67,7 @@ public class SomeArray extends AbstractArray {
   }
 
   @Override
-  public void attach(SomeArrayObserver observer) {
-    getArrayObserverList().add(observer);
-  }
-
-  @Override
-  public void detach(SomeArrayObserver observer) {
-    getArrayObserverList().remove(observer);
-  }
-
-  @Override
-  public void notifyObservers() throws SomeException {
-    for (SomeArrayObserver observer : getArrayObserverList()) {
-      observer.changeElement(this);
-    }
+  public String toString() {
+    return "SomeArray{" + "array=" + Arrays.toString(array) + '}';
   }
 }

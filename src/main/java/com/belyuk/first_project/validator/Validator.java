@@ -1,5 +1,6 @@
 package com.belyuk.first_project.validator;
 
 public interface Validator {
-  boolean validateFileInfo(String filePath);
+  boolean validateFilePath(String filePath);
+  boolean validateFileInfo(String informationFromFile);
 }

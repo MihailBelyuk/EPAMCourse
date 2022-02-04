@@ -7,8 +7,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ValidatorImpl implements Validator {
-  private static final Logger LOGGER = LogManager.getLogger();
+  private static final Logger logger = LogManager.getLogger();
   private static final ValidatorImpl validator = new ValidatorImpl();
+  private static final String FILE_INFO_VALIDATOR = "^\\s*-?\\d{1,10}(\\s+(-?\\d{1,10}))*\\s*$";
 
   private ValidatorImpl() {}
 
@@ -17,15 +18,20 @@ public class ValidatorImpl implements Validator {
   }
 
   @Override
-  public boolean validateFileInfo(String filePath) {
+  public boolean validateFilePath(String filePath) {
     boolean isValid = false;
     if (filePath != null) {
       File file = new File(filePath);
       if (file.exists() && file.length() > 0) {
         isValid = true;
-        LOGGER.log(Level.INFO, "File path is valid.");
+        logger.log(Level.INFO, "File path is valid.");
       }
     }
     return isValid;
+  }
+
+  @Override
+  public boolean validateFileInfo(String informationFromFile) {
+        return informationFromFile.matches(FILE_INFO_VALIDATOR);
   }
 }

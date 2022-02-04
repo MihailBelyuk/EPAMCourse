@@ -7,5 +7,5 @@ public interface Observable {
 
   void detach(SomeArrayObserver observer);
 
-  void notifyObservers() throws SomeException;
+  void notifyObservers();
 }
