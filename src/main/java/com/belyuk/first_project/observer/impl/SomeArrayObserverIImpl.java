@@ -5,7 +5,7 @@ import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.entity.Warehouse;
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.SomeArrayObserver;
-import com.belyuk.first_project.service.impl.ServiceUtilImpl;
+import com.belyuk.first_project.service.impl.ServiceImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,7 +15,7 @@ public class SomeArrayObserverIImpl implements SomeArrayObserver {
 
   @Override
   public void changeElement(SomeArray someArray) {
-    ServiceUtilImpl serviceUtil = new ServiceUtilImpl();
+    ServiceImpl serviceUtil = new ServiceImpl();
     int max = 0;
     int min = 0;
     double average = 0;

@@ -64,10 +64,10 @@ public class SomeArray extends AbstractArray {
   @Override
   public int hashCode() {
     return Arrays.hashCode(array);
-  }
+  } //TODO переписать вручную
 
   @Override
-  public String toString() {
+  public String toString() {//TODO переписать вручную
     return "SomeArray{" + "array=" + Arrays.toString(array) + '}';
   }
 }

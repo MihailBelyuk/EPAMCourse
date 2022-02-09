@@ -2,13 +2,13 @@ package com.belyuk.first_project.service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;
-import com.belyuk.first_project.service.SortingUtil;
+import com.belyuk.first_project.service.Sorting;
 import java.util.stream.IntStream;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class SortingUtilImpl implements SortingUtil {
+public class SortingImpl implements Sorting {
   private static final Logger logger = LogManager.getLogger();
 
   @Override

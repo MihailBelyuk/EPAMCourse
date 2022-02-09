@@ -2,12 +2,13 @@ package com.belyuk.first_project.service.impl;
 
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;
-import com.belyuk.first_project.service.ServiceUtil;
+import com.belyuk.first_project.service.Service;
+import java.util.stream.IntStream;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ServiceUtilImpl implements ServiceUtil {
+public class ServiceStreamImpl implements Service {
   private static final Logger logger = LogManager.getLogger();
 
   @Override
@@ -17,11 +18,7 @@ public class ServiceUtilImpl implements ServiceUtil {
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
-    int result = 0;
-    for (int j : array) {
-      result += j;
-    }
-    return result;
+    return IntStream.of(array).sum();
   }
 
   @Override
@@ -31,13 +28,7 @@ public class ServiceUtilImpl implements ServiceUtil {
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
-    int min = array[0];
-    for (int j : array) {
-      if (min > j) {
-        min = j;
-      }
-    }
-    return min;
+    return IntStream.of(array).min().getAsInt();
   }
 
   @Override
@@ -47,13 +38,8 @@ public class ServiceUtilImpl implements ServiceUtil {
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
-    int max = array[0];
-    for (int j : array) {
-      if (max < j) {
-        max = j;
-      }
-    }
-    return max;
+    IntStream.of(array).max().getAsInt();
+    return IntStream.of(array).max().getAsInt();
   }
 
   @Override
@@ -63,11 +49,7 @@ public class ServiceUtilImpl implements ServiceUtil {
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
-    double sum = 0;
-    for (int j : array) {
-      sum += j;
-    }
-    return sum / array.length;
+    return IntStream.of(array).average().getAsDouble();
   }
 
   @Override
@@ -77,13 +59,7 @@ public class ServiceUtilImpl implements ServiceUtil {
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
-    int negativeValues = 0;
-    for (int j : array) {
-      if (j < 0) {
-        negativeValues++;
-      }
-    }
-    return negativeValues;
+    return (int) IntStream.of(array).filter(x -> x < 0).count();
   }
 
   @Override
@@ -93,13 +69,7 @@ public class ServiceUtilImpl implements ServiceUtil {
       throw new SomeException("Method parameter is null.");
     }
     int[] array = someArray.getArray();
-    int positiveValues = 0;
-    for (int j : array) {
-      if (j < 0) {
-        positiveValues++;
-      }
-    }
-    return positiveValues;
+    return (int) IntStream.of(array).filter(x -> x > 0).count();
   }
 
   @Override
@@ -108,12 +78,7 @@ public class ServiceUtilImpl implements ServiceUtil {
       logger.log(Level.ERROR, "Method parameter is null.");
       throw new SomeException("Method parameter is null.");
     }
-    int[] array = someArray.getArray(); // replace all negative values with "0"
-    for (int i = 0; i < array.length; i++) {
-      if (array[i] < 0) {
-        array[i] = forReplace;
-      }
-    }
+    int[] array = someArray.getArray(); // TODO "replace" using IntStream
     return array;
   }
 }

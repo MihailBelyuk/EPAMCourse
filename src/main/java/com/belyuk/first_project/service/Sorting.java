@@ -3,7 +3,7 @@ package com.belyuk.first_project.service;
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.exception.SomeException;
 
-public interface SortingUtil {
+public interface Sorting {
   SomeArray sortByBubble(SomeArray someArray) throws SomeException;
 
   SomeArray sortBySelection(SomeArray someArray) throws SomeException;

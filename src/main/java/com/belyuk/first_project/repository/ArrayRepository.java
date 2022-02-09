@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayRepository {
+  private final List<SomeArray> listWithArrays = new ArrayList<>();
   private static ArrayRepository arrayRepository = new ArrayRepository();
 
   private ArrayRepository() {}
@@ -12,8 +13,6 @@ public class ArrayRepository {
   public static ArrayRepository getInstance() {
     return arrayRepository;
   }
-
-  private final List<SomeArray> listWithArrays = new ArrayList<>();
 
   public void addSomeArray(SomeArray someArray) {
     listWithArrays.add(someArray);
@@ -43,9 +42,7 @@ public class ArrayRepository {
 
   public List<SomeArray> queryStream(Specification specification) {
     List<SomeArray> someArrayList;
-    someArrayList = listWithArrays.stream()
-                                  .filter(specification::specify)
-                                  .toList();
+    someArrayList = listWithArrays.stream().filter(specification::specify).toList();
     return someArrayList;
   }
 }
