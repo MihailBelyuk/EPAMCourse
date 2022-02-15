@@ -38,3 +38,4 @@
 2022-02-01 20:02:16 [main] ERROR belyuk.first_project.reader.impl.ReaderImpl - File trying to access is empty.
 2022-02-01 20:06:59 [main] ERROR belyuk.first_project.reader.impl.ReaderImpl - File path is null.
 2022-02-01 20:07:35 [main] ERROR belyuk.first_project.reader.impl.ReaderImpl - File trying to access is empty.
+2022-02-15 22:42:06 [main] INFO  belyuk.first_project.validator.impl.ValidatorImpl - File path is valid.
