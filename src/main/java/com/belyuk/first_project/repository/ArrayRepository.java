@@ -42,7 +42,9 @@ public class ArrayRepository {
 
   public List<SomeArray> queryStream(Specification specification) {
     List<SomeArray> someArrayList;
-    someArrayList = listWithArrays.stream().filter(specification::specify).toList();
+    someArrayList = listWithArrays.stream()
+                                  .filter(specification::specify)
+                                  .toList();
     return someArrayList;
   }
 }

@@ -1,13 +1,14 @@
 package com.belyuk.first_project.entity;
 
+import com.belyuk.first_project.observer.ArrayEvent;
 import com.belyuk.first_project.observer.Observable;
 import com.belyuk.first_project.observer.SomeArrayObserver;
-import com.belyuk.first_project.service.IdGenerator;
+import com.belyuk.first_project.util.IdGenerator;
 import java.util.List;
 
 public abstract class AbstractArray implements Observable {
   private long arrayId;
-  List<SomeArrayObserver> arrayObserverList;
+  private List<SomeArrayObserver> arrayObserverList;
 
   public AbstractArray() {
     this.arrayId = IdGenerator.createId();
@@ -29,5 +30,14 @@ public abstract class AbstractArray implements Observable {
   @Override
   public void detach(SomeArrayObserver observer) {
     getArrayObserverList().remove(observer);
+  }
+
+  @Override
+  public void notifyObservers() {
+    if (!arrayObserverList.isEmpty()) {
+      for (SomeArrayObserver observer : arrayObserverList) {
+        observer.changeElement(new ArrayEvent(this));
+      }
+    }
   }
 }

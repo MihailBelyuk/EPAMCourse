@@ -3,6 +3,8 @@ package com.belyuk.first_project.entity;
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.SomeArrayObserver;
 import java.util.Arrays;
+import java.util.StringJoiner;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,35 +20,30 @@ public class SomeArray extends AbstractArray {
     }
   }
 
+  public SomeArrayObserver get(int index) {
+    return getArrayObserverList().get(index);
+  }
+
   public void setElement(int index, int value) throws SomeException {
-    if (index >= 0 && index < array.length) {
-      array[index] = value;
-      notifyObservers();
-    } else {
+    if (index < 0 || index > array.length) {
+      logger.log(Level.ERROR, "Incorrect index or value.");
       throw new SomeException("Incorrect index or value.");
     }
+    array[index] = value;
+    notifyObservers();
   }
 
   public void setArray(int[] array) throws SomeException {
-    if (array != null) {
-      this.array = Arrays.copyOf(array, array.length);
-      notifyObservers();
-    } else {
-      throw new SomeException("Array is null.");
+    if (array == null) {
+      logger.log(Level.ERROR, "Provided array is null.");
+      throw new SomeException("Provided array is null.");
     }
+    this.array = Arrays.copyOf(array, array.length);
+    notifyObservers();
   }
 
   public int[] getArray() {
     return Arrays.copyOf(array, array.length);
-  }
-
-  @Override
-  public void notifyObservers() {
-    if (!arrayObserverList.isEmpty()) {
-      for (SomeArrayObserver observer : arrayObserverList) {
-        observer.changeElement(this);
-      }
-    }
   }
 
   @Override
@@ -64,10 +61,13 @@ public class SomeArray extends AbstractArray {
   @Override
   public int hashCode() {
     return Arrays.hashCode(array);
-  } //TODO переписать вручную
+  }
 
   @Override
-  public String toString() {//TODO переписать вручную
-    return "SomeArray{" + "array=" + Arrays.toString(array) + '}';
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("SomeArray{");
+    sb.append("array=").append(Arrays.toString(array));
+    sb.append('}');
+    return sb.toString();
   }
 }

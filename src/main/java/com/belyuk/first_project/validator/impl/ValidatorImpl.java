@@ -1,19 +1,19 @@
 package com.belyuk.first_project.validator.impl;
 
-import com.belyuk.first_project.validator.Validator;
+import com.belyuk.first_project.validator.ArrayValidator;
 import java.io.File;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ValidatorImpl implements Validator {
+public class ValidatorImpl implements ArrayValidator {
   private static final Logger logger = LogManager.getLogger();
   private static final ValidatorImpl validator = new ValidatorImpl();
   private static final String FILE_INFO_VALIDATOR = "^\\s*-?\\d{1,10}(\\s+(-?\\d{1,10}))*\\s*$";
 
   private ValidatorImpl() {}
 
-  public static Validator getInstance() {
+  public static ArrayValidator getInstance() {
     return validator;
   }
 

@@ -2,7 +2,7 @@ package com.belyuk.first_project.reader.impl;
 
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.reader.CustomReader;
-import com.belyuk.first_project.validator.Validator;
+import com.belyuk.first_project.validator.ArrayValidator;
 import com.belyuk.first_project.validator.impl.ValidatorImpl;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -26,27 +26,26 @@ public class CustomReaderImpl implements CustomReader {
 
   @Override
   public List<String> readFile(String filePath) throws SomeException {
-    List<String> lines = new ArrayList<>();
-    Validator validator = ValidatorImpl.getInstance();
+    List<String> linesFromFile = new ArrayList<>();
+    ArrayValidator validator = ValidatorImpl.getInstance();
     String informationFromFile;
-    if (validator.validateFileInfo(filePath)) {
-      try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
-        while ((informationFromFile = bufferedReader.readLine()) != null) {
-          if (validator.validateFileInfo(informationFromFile)) {
-            lines.add(informationFromFile);
-          }
-        }
-      } catch (FileNotFoundException e) {
-        logger.log(Level.ERROR, "File attempting to read is missing.");
-        throw new SomeException("File attempting to read is missing.");
-      } catch (IOException e) {
-        logger.log(Level.ERROR, "File can't be read." + filePath, e);
-        throw new SomeException("File can't be read", e);
-      }
-    } else {
+    if (!validator.validateFileInfo(filePath)) {
       logger.log(Level.ERROR, "File trying to access is empty or null.");
       throw new SomeException("File trying to access is empty or null.");
     }
-    return lines;
+    try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+      while ((informationFromFile = bufferedReader.readLine()) != null) {
+        if (validator.validateFileInfo(informationFromFile)) {
+          linesFromFile.add(informationFromFile);
+        }
+      }
+    } catch (FileNotFoundException e) {
+      logger.log(Level.ERROR, "File attempting to read is missing.");
+      throw new SomeException("File attempting to read is missing.");
+    } catch (IOException e) {
+      logger.log(Level.ERROR, "File can't be read." + filePath, e);
+      throw new SomeException("File can't be read", e);
+    }
+    return linesFromFile;
   }
 }

@@ -1,6 +1,7 @@
 package com.belyuk.first_project.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.belyuk.first_project.entity.SomeArray;
@@ -10,13 +11,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ServiceImplTest {
-  ServiceImpl serviceImpl;
+  ArrayServiceImpl serviceImpl;
   SomeArray someArray;
 
   @BeforeEach
   void setUp() throws SomeException {
     int[] array = {1, 3, 5, 2};
-    serviceImpl = new ServiceImpl();
+    serviceImpl = new ArrayServiceImpl();
     someArray = new SomeArray(array);
   }
 
@@ -59,7 +60,7 @@ class ServiceImplTest {
   void countPositiveValues() throws SomeException {
     int expected = 4;
     int actual = serviceImpl.countPositiveValues(someArray);
-    assertEquals(expected, actual);
+    assertNotEquals(expected, actual);
   }
 
   @Test

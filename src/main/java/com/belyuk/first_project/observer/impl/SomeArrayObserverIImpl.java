@@ -1,11 +1,12 @@
 package com.belyuk.first_project.observer.impl;
 
+import com.belyuk.first_project.observer.ArrayEvent;
 import com.belyuk.first_project.entity.ArrayStatistics;
 import com.belyuk.first_project.entity.SomeArray;
 import com.belyuk.first_project.entity.Warehouse;
 import com.belyuk.first_project.exception.SomeException;
 import com.belyuk.first_project.observer.SomeArrayObserver;
-import com.belyuk.first_project.service.impl.ServiceImpl;
+import com.belyuk.first_project.service.impl.ArrayServiceImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,8 +15,9 @@ public class SomeArrayObserverIImpl implements SomeArrayObserver {
   private static final Logger logger = LogManager.getLogger();
 
   @Override
-  public void changeElement(SomeArray someArray) {
-    ServiceImpl serviceUtil = new ServiceImpl();
+  public void changeElement(ArrayEvent event) {
+    SomeArray someArray=(SomeArray) event.getSource();
+    ArrayServiceImpl serviceUtil = new ArrayServiceImpl();
     int max = 0;
     int min = 0;
     double average = 0;
